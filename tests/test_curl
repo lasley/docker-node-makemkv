@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Copyright 2016 Dave Lasley
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
+
+set -e
+
+sleep 2
+
+curl --fail http://127.0.0.1:80/
+
+echo "Curl passed on $DOCKER_CONTAINER_ID"
