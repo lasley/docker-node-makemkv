@@ -6,7 +6,6 @@ from os import environ
 
 # Environment configurations
 DIR_OUT = environ.get('DIR_OUT')
-DIR_SRC = environ.get('DIR_SRC')
 CONVERSION_PROFILE = environ.get('CONVERSION_PROFILE')
 HTTP_PORT = environ.get('HTTP_PORT')
 OUTLIER_MODIFIER = environ.get('OUTLIER_MODIFIER')
@@ -17,13 +16,12 @@ MAKEMKVCON_PATH = '/usr/local/bin/makemkvcon'
 with open(SETTINGS_FILE, 'r') as fh:
     settings = json.loads(fh.read())
 
-settings['USER_SETTINGS'].update({
-    'output_dir': DIR_OUT,
-    'source_dir': DIR_SRC,
-    'conversion_profile': CONVERSION_PROFILE,
-    'listen_port': HTTP_PORT,
-    'makemkvcon_path': MAKEMKVCON_PATH,
-    'outlier_modifier': OUTLIER_MODIFIER,
+settings.update({
+    'OUTPUT_DIR': DIR_OUT,
+    'CONVERSION_PROFILE': CONVERSION_PROFILE,
+    'SERVER_PORT': HTTP_PORT,
+    'MAKEMKVCON_PATH': MAKEMKVCON_PATH,
+    'OUTLIER_MODIFIER': OUTLIER_MODIFIER,
 })
 
 with open(SETTINGS_FILE, 'w') as fh:
